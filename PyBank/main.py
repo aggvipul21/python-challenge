@@ -90,7 +90,7 @@ with open(csv_path,encoding="utf-8") as csv_file:
 tot_months=len(months)
 
 #set value for total profit/loss
-tot_profit_loss=len(months)
+tot_profit_loss=sum(profit_loss)
 
 #set value for average chnage in profit/loss
 avg_profit_loss_change=round((sum(profit_loss_change)/len(profit_loss_change)),2)   
@@ -118,11 +118,19 @@ with open(output_path, 'w',newline='') as csv_output:
     # Initialize csv.writer
     csv_writer=csv.writer(csv_output, delimiter=',')
 
+    #Write sheet header
+    csv_writer.writerow(["Financial Analysis",""])
+    csv_writer.writerow(["-----------------------------",''])
+
     #Write row for Total Months
     csv_writer.writerow(["Total Months",tot_months])
+    #Write row for total of Profit/Loss
     csv_writer.writerow(["Total","$"+str(tot_profit_loss)])
+    #Write row for average change in profit/loss
     csv_writer.writerow(["Average  Change","$"+str(avg_profit_loss_change)])
+    #Write row for greatest increase in profit
     csv_writer.writerow(["Greatest Increase in Profits",greatest_inc_profit_date+" ($"+str(greatest_inc_profit)+")"])
+    #Write row for greatest descrease in profit
     csv_writer.writerow(["Greatest Decrease in Profits",greatest_dec_loss_date+" ($"+str(greatest_dec_loss)+")"])
     
 
