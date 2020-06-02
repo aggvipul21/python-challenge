@@ -19,4 +19,4 @@ Budget_data.csv contains below data:
   Total: The net total amount of "Profit/Losses" over the entire period
   Average  Change: The average of the changes in "Profit/Losses" over the entire period rounded to two decimal
   Greatest Increase in Profits: The greatest increase in profits (date and amount) over the entire period
-  Greatest Decrease in Loss: The greatest decrease in losses (date and amount) over the entire period
+  Greatest Decrease in Profits: The greatest decrease in losses (date and amount) over the entire period
