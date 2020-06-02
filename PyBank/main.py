@@ -108,29 +108,21 @@ print(f"""
   """)
 
 #set path and name of file in which data would be written back
-output_path=os.path.join("Analysis","budget_summary.csv")
+output_path=os.path.join("Analysis","budget_summary.txt")
 
 #Print path and name of file
 #print(output_path)
 
-with open(output_path, 'w',newline='') as csv_output:
+with open(output_path, 'w') as file_output:
 
-    # Initialize csv.writer
-    csv_writer=csv.writer(csv_output, delimiter=',')
-
-    #Write sheet header
-    csv_writer.writerow(["Financial Analysis",""])
-    csv_writer.writerow(["-----------------------------",''])
-
-    #Write row for Total Months
-    csv_writer.writerow(["Total Months",tot_months])
-    #Write row for total of Profit/Loss
-    csv_writer.writerow(["Total","$"+str(tot_profit_loss)])
-    #Write row for average change in profit/loss
-    csv_writer.writerow(["Average  Change","$"+str(avg_profit_loss_change)])
-    #Write row for greatest increase in profit
-    csv_writer.writerow(["Greatest Increase in Profits",greatest_inc_profit_date+" ($"+str(greatest_inc_profit)+")"])
-    #Write row for greatest descrease in profit
-    csv_writer.writerow(["Greatest Decrease in Profits",greatest_dec_loss_date+" ($"+str(greatest_dec_loss)+")"])
+    #Write data into text file
+    file_output.write(f"Financial Analysis\n")
+    
+    file_output.write(f"----------------------------\n")
+    file_output.write(f"Total Months: {tot_months}\n")
+    file_output.write(f"Total: ${tot_profit_loss}\n")
+    file_output.write(f"Average  Change: ${avg_profit_loss_change}\n")
+    file_output.write(f"Greatest Increase in Profits: {greatest_inc_profit_date} (${greatest_inc_profit})\n")
+    file_output.write(f"Greatest Decrease in Profits: {greatest_dec_loss_date} (${greatest_dec_loss})\n")
     
 
